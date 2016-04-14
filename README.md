@@ -15,4 +15,6 @@ Have a look at our full documentation found at:
 [http://magentys.github.io/cherry](http://magentys.github.io/cherry).
             
             
+* Developers: [Kostas Mamalis](@mamalisk)
 
+Powered by [Magentys](http://magentys.io)
