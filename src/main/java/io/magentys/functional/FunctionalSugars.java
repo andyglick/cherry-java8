@@ -13,4 +13,6 @@ public class FunctionalSugars extends Sugars {
         return tool;
     }
 
+    public static <INPUT> INPUT rememberedAs(INPUT input) { return input; }
+
 }

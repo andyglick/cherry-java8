@@ -8,6 +8,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
+import static io.magentys.functional.FunctionalSugars.rememberedAs;
 import static io.magentys.functional.FunctionalSugars.withInput;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -38,13 +39,17 @@ public class FunctionalAgentTest {
         add("do");
         add("re");
         add("me");
+        add("fa");
+        add("sol");
+        add("la");
+        add("ti");
     }};
 
 
     @org.junit.Test
     public void shouldBeAbleToRememberTheResultOfASupplier() throws Exception {
-        functionalAgent.keepsInMindTheResultOf(sultanOfStrings, "unique.key");
-        assertThat(functionalAgent.recalls("unique.key", ArrayList.class).size(), is(3));
+        functionalAgent.keepsInMindTheResultOf(sultanOfStrings, rememberedAs("music.notes"));
+        assertThat(functionalAgent.recalls("music.notes", ArrayList.class).get(0), is("do"));
     }
 
 
