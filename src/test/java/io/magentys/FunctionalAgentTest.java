@@ -10,7 +10,6 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 import static io.magentys.functional.FunctionalSugars.rememberedAs;
-import static io.magentys.functional.FunctionalSugars.withInput;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
@@ -27,7 +26,7 @@ public class FunctionalAgentTest {
     public void shouldBeAbleToPerformMissionsInTheShapeOfPredicates() throws Exception {
         Predicate<String> notEmpty = s -> !"".equals(s);
         Predicate<String> notNull = s -> s != null;
-        assertThat(functionalAgent.tests("my perfect phrase!", notEmpty.and(notNull)), is(true));
+        assertThat(functionalAgent.tests(notEmpty.and(notNull),"my perfect phrase!"), is(true));
     }
 
     private Supplier<List<String>> sultanOfStrings = () -> new ArrayList<String>() {{
