@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
@@ -74,5 +75,10 @@ public class FunctionalAgentTest {
         functionalAgent.obtains(new Additioner());
         String result = functionalAgent.performs((integer, integer2, integer3, agent) -> agent.usingThe(Additioner.class).addAndGetAsString(integer, integer2, integer3), 1, 2, 3);
         assertThat(result, is("6"));
+    }
+
+    @Test
+    public void shouldPerformAsynchronousOperations() throws Exception {
+        assertThat(functionalAgent.performsAsync(asAgent -> "desserts").thenApply(s -> new StringBuffer(s).reverse().toString()).get(),is("stressed"));
     }
 }

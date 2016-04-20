@@ -60,18 +60,8 @@ public class FunctionalAgent extends Agent {
         return mission.apply(one, two, three, four, this);
     }
 
-    public <Result> Future<Result> performsAsync(Mission<Result> mission) {
-        CompletableFuture<Result> futureResult = new CompletableFuture<>();
-        Runnable runnable = () -> {
-            try {
-                Result result = mission.accomplishAs(this);
-                futureResult.complete(result);
-            } catch (Throwable e) {
-                futureResult.completeExceptionally(e);
-            }
-        };
-        new Thread(runnable).start();
-        return futureResult;
+    public <Result> CompletableFuture<Result> performsAsync(FutureMission<Result> mission) {
+        return mission.accomplishAsync(mission,this);
     }
 
     public <Input, Result> Future<Result> performsAsync(Functions.FunctionalMission1<Input,Result> mission, Input input) {
@@ -98,7 +88,7 @@ public class FunctionalAgent extends Agent {
                 futureResult.completeExceptionally(e);
             }
         };
-        new Thread(runnable).start();
+
         return futureResult;
     }
 
