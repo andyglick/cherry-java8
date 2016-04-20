@@ -19,12 +19,13 @@ public class FunctionalAgent extends Agent {
          return myFunction.apply(input);
     }
 
-    public <INPUT> Boolean tests(INPUT s, Predicate<INPUT> isNotEmpty) {
-         return isNotEmpty.test(s);
+    public <INPUT> Boolean tests(Predicate<INPUT> predicate, INPUT input) {
+         return predicate.test(input);
     }
 
-    public <OUTPUT> FunctionalAgent keepsInMindTheResultOf(Supplier<OUTPUT> sultanOfStrings, String uniqueKey) {
-        this.keepsInMind(uniqueKey, sultanOfStrings.get());
+
+    public <OUTPUT> FunctionalAgent keepsInMindTheResultOf(Supplier<OUTPUT> supplier, String uniqueKey) {
+        this.keepsInMind(uniqueKey, supplier.get());
         return this;
     }
 
