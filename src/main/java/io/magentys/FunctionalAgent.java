@@ -41,5 +41,21 @@ public class FunctionalAgent extends Agent {
         return functionalMission.apply(one,two, three, four, this);
     }
 
+    public <One,Result> Result performs(Functions.FunctionalMission<One,Result> mission, One one) {
+        return mission.apply(one, this);
+    }
+
+    public <One, Two, Result> Result performs(Functions.FunctionalMission2<One, Two, Result> mission, One one, Two two) {
+        return mission.apply(one, two, this);
+    }
+
+    public <One, Two, Three, Result> Result performs(Functions.FunctionalMission3<One, Two, Three, Result> mission, One one, Two two, Three three) {
+        return mission.apply(one, two, three, this);
+    }
+
+    public <One, Two, Three, Four, Result> Result performs(Functions.FunctionalMission4<One, Two, Three, Four, Result> mission, One one, Two two, Three three, Four four) {
+        return mission.apply(one, two, three, four, this);
+    }
+
 
 }
