@@ -4,6 +4,8 @@ import io.magentys.FunctionalAgent;
 
 public class Functions {
 
+
+
     @FunctionalInterface
     public interface Function2<One,Two, Result> {
         Result apply(One one, Two two);
@@ -24,7 +26,12 @@ public class Functions {
     }
 
     @FunctionalInterface
-    public interface FunctionalMission<One,Result> extends Function2<One, FunctionalAgent, Result> {
+    public interface FunctionalMission<RESULT> {
+        RESULT apply(FunctionalAgent functionalAgent);
+    }
+
+    @FunctionalInterface
+    public interface FunctionalMission1<One,Result> extends Function2<One, FunctionalAgent, Result> {
 
     }
 

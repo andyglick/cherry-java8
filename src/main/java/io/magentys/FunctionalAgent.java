@@ -3,6 +3,8 @@ package io.magentys;
 
 import io.magentys.functional.Functions;
 
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Future;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
@@ -42,7 +44,7 @@ public class FunctionalAgent extends Agent {
         return functionalMission.apply(one,two, three, four, this);
     }
 
-    public <One,Result> Result performs(Functions.FunctionalMission<One,Result> mission, One one) {
+    public <One,Result> Result performs(Functions.FunctionalMission1<One,Result> mission, One one) {
         return mission.apply(one, this);
     }
 
@@ -57,6 +59,79 @@ public class FunctionalAgent extends Agent {
     public <One, Two, Three, Four, Result> Result performs(Functions.FunctionalMission4<One, Two, Three, Four, Result> mission, One one, Two two, Three three, Four four) {
         return mission.apply(one, two, three, four, this);
     }
+
+    public <Result> Future<Result> performsAsync(Mission<Result> mission) {
+        CompletableFuture<Result> futureResult = new CompletableFuture<>();
+        Runnable runnable = () -> {
+            try {
+                Result result = mission.accomplishAs(this);
+                futureResult.complete(result);
+            } catch (Throwable e) {
+                futureResult.completeExceptionally(e);
+            }
+        };
+        new Thread(runnable).start();
+        return futureResult;
+    }
+
+    public <Input, Result> Future<Result> performsAsync(Functions.FunctionalMission1<Input,Result> mission, Input input) {
+        CompletableFuture<Result> futureResult = new CompletableFuture<>();
+        Runnable runnable = () -> {
+            try {
+                Result result = mission.apply(input, this);
+                futureResult.complete(result);
+            } catch (Throwable e) {
+                futureResult.completeExceptionally(e);
+            }
+        };
+        new Thread(runnable).start();
+        return futureResult;
+    }
+
+   public <One, Two, Result> Future<Result> performsAsync(Functions.FunctionalMission2<One,Two,Result> mission, One one, Two two) {
+        CompletableFuture<Result> futureResult = new CompletableFuture<>();
+        Runnable runnable = () -> {
+            try {
+                Result result = mission.apply(one, two, this);
+                futureResult.complete(result);
+            } catch (Throwable e) {
+                futureResult.completeExceptionally(e);
+            }
+        };
+        new Thread(runnable).start();
+        return futureResult;
+    }
+
+    public <One, Two, Three, Result> Future<Result> performsAsync(Functions.FunctionalMission3<One,Two, Three, Result> mission, One one, Two two, Three three) {
+        CompletableFuture<Result> futureResult = new CompletableFuture<>();
+        Runnable runnable = () -> {
+            try {
+                Result result = mission.apply(one, two, three, this);
+                futureResult.complete(result);
+            } catch (Throwable e) {
+                futureResult.completeExceptionally(e);
+            }
+        };
+        new Thread(runnable).start();
+        return futureResult;
+    }
+
+    public <One, Two, Three, Four, Result> Future<Result> performsAsync(Functions.FunctionalMission4<One,Two, Three, Four, Result> mission, One one, Two two, Three three, Four four) {
+        CompletableFuture<Result> futureResult = new CompletableFuture<>();
+        Runnable runnable = () -> {
+            try {
+                Result result = mission.apply(one, two, three, four, this);
+                futureResult.complete(result);
+            } catch (Throwable e) {
+                futureResult.completeExceptionally(e);
+            }
+        };
+        new Thread(runnable).start();
+        return futureResult;
+    }
+
+
+
 
 
 }
