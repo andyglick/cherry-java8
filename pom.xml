@@ -10,6 +10,43 @@
   <name>cherry-java8</name>
   <url>http://maven.apache.org</url>
 
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <description>A syntactical sugar project for BDD oriented tests</description>
+
+  <developers>
+    <developer>
+      <name>Kostas Mamalis</name>
+      <id>mamalisk</id>
+      <organizationUrl>http://magentys.io</organizationUrl>
+    </developer>
+  </developers>
+
+  <scm>
+    <developerConnection>scm:git:https://github.com/MagenTys/cherry-java8</developerConnection>
+    <url>https://github.com/MagenTys/cherry-java8</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh.snap</id>
+      <name>Main Maven Repo - Snapshots</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <name>Main Maven Repo - Releases</name>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+    </repository>
+  </distributionManagement>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
