@@ -2,6 +2,7 @@
 
 [![Join the chat at https://gitter.im/MagenTys/cherry](https://badges.gitter.im/MagenTys/cherry.svg)](https://gitter.im/MagenTys/cherry?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.magentys/cherry-java8/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.magentys/cherry-java8)
 A Syntactical Sugar project implementing the Mission pattern.
 This is the Java 8 version of **[Cherry](https://github.com/MagenTys/cherry)** project.
 
