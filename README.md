@@ -13,7 +13,7 @@ This is the Java 8 version of **[Cherry](https://github.com/MagenTys/cherry)** p
 Java8 Agents are capable of performing Missions in the form of Java8 Functions, Predicates and Suppliers.
 
 Have a look at our full documentation found at:           
-[http://magentys.github.io/cherry](http://magentys.github.io/cherry).
+[http://cherryframe.work](http://cherryframe.work).
             
             
 * Developers: [Kostas Mamalis](@mamalisk)
