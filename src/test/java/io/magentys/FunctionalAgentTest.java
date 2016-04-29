@@ -1,15 +1,16 @@
 package io.magentys;
 
+import io.magentys.functional.Functions;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
+import static io.magentys.FunctionalVerifier.verifyAsFunctional;
 import static io.magentys.functional.FunctionalSugars.rememberedAs;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -27,7 +28,7 @@ public class FunctionalAgentTest {
     public void shouldBeAbleToPerformMissionsInTheShapeOfPredicates() throws Exception {
         Predicate<String> notEmpty = s -> !"".equals(s);
         Predicate<String> notNull = s -> s != null;
-        assertThat(functionalAgent.tests(notEmpty.and(notNull),"my perfect phrase!"), is(true));
+        assertThat(functionalAgent.tests(notEmpty.and(notNull), "my perfect phrase!"), is(true));
     }
 
     private Supplier<List<String>> sultanOfStrings = () -> new ArrayList<String>() {{
@@ -68,6 +69,7 @@ public class FunctionalAgentTest {
         assertThat(functionalAgent.performs((one, two, agent) -> agent.usingThe(Additioner.class).add(one, two), 1, 2), is(3));
         assertThat(functionalAgent.performs((one, two, three, agent) -> agent.usingThe(Additioner.class).add(one, two, three), 1, 2, 3), is(6));
         assertThat(functionalAgent.performs((one, two, three, agent) -> agent.usingThe(Additioner.class).add(one, two, three), 1, 2, 3), is(6));
+
     }
 
     @Test
@@ -80,5 +82,13 @@ public class FunctionalAgentTest {
     @Test
     public void shouldPerformAsynchronousOperations() throws Exception {
         assertThat(functionalAgent.performsAsync(asAgent -> "desserts").thenApply(s -> new StringBuffer(s).reverse().toString()).get(),is("stressed"));
+    }
+
+    @Test
+    public void shouldPerformVerificationsAsMissionsAndVerifyWithHamcrestMatchers() throws Exception {
+        functionalAgent.obtains(new Additioner());
+        final Functions.FunctionalMission2<Integer, Integer, String> func = (integer1, integer2, agent) -> agent.usingThe(Additioner.class).addAndGetAsString(integer1, integer2);
+        verifyAsFunctional(functionalAgent).that(func, 1, 2, is("3"));
+
     }
 }

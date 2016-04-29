@@ -17,6 +17,8 @@ public class FunctionalAgent extends Agent {
         super(memory);
     }
 
+    public static FunctionalAgent functionalAgent() { return new FunctionalAgent(new CoreMemory()); }
+
     public <INPUT,OUTPUT> OUTPUT performs(Function<INPUT, OUTPUT> myFunction, INPUT input) {
          return myFunction.apply(input);
     }
@@ -88,7 +90,7 @@ public class FunctionalAgent extends Agent {
                 futureResult.completeExceptionally(e);
             }
         };
-
+        new Thread(runnable).start();
         return futureResult;
     }
 

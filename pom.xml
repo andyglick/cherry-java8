@@ -129,12 +129,11 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.12</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
 	    <groupId>io.magentys</groupId>
 	    <artifactId>cherry</artifactId>
-	    <version>0.0.7</version>
+	    <version>1.0.2</version>
     </dependency>
   </dependencies>
 </project>
