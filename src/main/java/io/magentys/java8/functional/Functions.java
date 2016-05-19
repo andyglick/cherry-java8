@@ -1,6 +1,6 @@
-package io.magentys.functional;
+package io.magentys.java8.functional;
 
-import io.magentys.FunctionalAgent;
+import io.magentys.java8.FunctionalAgent;
 
 public class Functions {
 

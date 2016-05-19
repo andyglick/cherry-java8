@@ -1,6 +1,7 @@
-package io.magentys;
+package io.magentys.java8;
 
-import io.magentys.functional.Functions;
+import io.magentys.AgentVerifier;
+import io.magentys.java8.functional.Functions;
 import org.hamcrest.Matcher;
 
 import static org.junit.Assert.assertThat;

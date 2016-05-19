@@ -3,7 +3,7 @@
 
   <groupId>io.magentys</groupId>
   <artifactId>cherry-java8</artifactId>
-  <version>1.0.2-SNAPSHOT</version>
+  <version>${cherry.version}-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>cherry-java8</name>
@@ -48,6 +48,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <cherry.version>1.0.5</cherry.version>
   </properties>
 
   <build>
@@ -133,7 +134,7 @@
     <dependency>
 	    <groupId>io.magentys</groupId>
 	    <artifactId>cherry</artifactId>
-	    <version>1.0.2</version>
+	    <version>${cherry.version}</version>
     </dependency>
   </dependencies>
 </project>

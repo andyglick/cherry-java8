@@ -1,6 +1,7 @@
 package io.magentys;
 
-import io.magentys.functional.Functions;
+import io.magentys.java8.FunctionalAgent;
+import io.magentys.java8.functional.Functions;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,8 +11,9 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-import static io.magentys.FunctionalVerifier.verifyAsFunctional;
-import static io.magentys.functional.FunctionalSugars.rememberedAs;
+import static io.magentys.java8.FunctionalAgentProvider.provideFunctionalAgent;
+import static io.magentys.java8.FunctionalVerifier.verifyAsFunctional;
+import static io.magentys.java8.functional.FunctionalSugars.rememberedAs;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
@@ -21,7 +23,7 @@ public class FunctionalAgentTest {
 
     @Before
     public void setUp() throws Exception {
-        functionalAgent = new FunctionalAgent(new CoreMemory());
+        functionalAgent = provideFunctionalAgent().get();
     }
 
     @Test

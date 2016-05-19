@@ -1,8 +1,10 @@
-package io.magentys;
+package io.magentys.java8;
+
+import io.magentys.Mission;
 
 import java.util.concurrent.CompletableFuture;
 
-public interface FutureMission<Result> extends Mission<Result>{
+public interface FutureMission<Result> extends Mission<Result> {
 
     default public CompletableFuture<Result> accomplishAsync(Mission<Result> mission, FunctionalAgent agent) {
             CompletableFuture<Result> futureResult = new CompletableFuture<>();

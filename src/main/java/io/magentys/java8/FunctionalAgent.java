@@ -1,8 +1,13 @@
-package io.magentys;
+package io.magentys.java8;
 
 
-import io.magentys.functional.Functions;
+import io.magentys.Agent;
+import io.magentys.CoreMemory;
+import io.magentys.Memory;
+import io.magentys.java8.functional.Functions;
+import io.magentys.utils.Any;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Future;
 import java.util.function.Function;
@@ -122,6 +127,15 @@ public class FunctionalAgent extends Agent {
         return futureResult;
     }
 
+    public FunctionalAgent clone(){
+        FunctionalAgent functionalAgent = new FunctionalAgent(getMemory());
+        functionalAgent.setTools(getTools());
+        return functionalAgent;
+    }
+
+    public void setMemory(Memory memory){
+
+    }
 
 
 

@@ -1,4 +1,4 @@
-package io.magentys.functional;
+package io.magentys.java8.functional;
 
 import io.magentys.utils.Sugars;
 
