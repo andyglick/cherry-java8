@@ -14,6 +14,8 @@ import java.util.stream.Stream;
 import static io.magentys.java8.FunctionalAgentProvider.provideFunctionalAgent;
 import static io.magentys.java8.FunctionalVerifier.verifyAsFunctional;
 import static io.magentys.java8.functional.FunctionalSugars.rememberedAs;
+import static io.magentys.narrators.SysoutNarrator.sysout;
+import static java.util.stream.Collectors.toSet;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
@@ -92,5 +94,12 @@ public class FunctionalAgentTest {
         final Functions.FunctionalMission2<Integer, Integer, String> func = (integer1, integer2, agent) -> agent.usingThe(Additioner.class).addAndGetAsString(integer1, integer2);
         verifyAsFunctional(functionalAgent).that(func, 1, 2, is("3"));
 
+    }
+
+    @Test
+    public void shouldBeAbleToObtainNarrators() throws Exception {
+        functionalAgent.setNarrators(Stream.of(sysout()).collect(toSet()));
+        assertThat(functionalAgent.getNarrators().size(), is(1));
+        functionalAgent.narrateThat("test");
     }
 }

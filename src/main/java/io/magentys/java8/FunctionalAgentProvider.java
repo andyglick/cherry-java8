@@ -1,8 +1,13 @@
 package io.magentys.java8;
 
 import io.magentys.Memory;
+import io.magentys.Narrator;
+
+import java.util.Set;
+import java.util.stream.Stream;
 
 import static io.magentys.CoreMemory.coreMemory;
+import static java.util.stream.Collectors.toSet;
 
 
 /**
@@ -72,6 +77,11 @@ public class FunctionalAgentProvider {
      */
     public FunctionalAgent get(){
         return anAgent;
+    }
+
+    public FunctionalAgentProvider withNarrators(Narrator... narrators){
+        anAgent = (FunctionalAgent) anAgent.clone().setNarrators(Stream.of(narrators).collect(toSet()));
+        return this;
     }
 
 

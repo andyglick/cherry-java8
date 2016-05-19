@@ -133,9 +133,7 @@ public class FunctionalAgent extends Agent {
         return functionalAgent;
     }
 
-    public void setMemory(Memory memory){
 
-    }
 
 
 
