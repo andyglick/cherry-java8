@@ -39,31 +39,31 @@ public class FunctionalAgent extends Agent {
     }
 
 
-    public <One,Two, OUTPUT> OUTPUT performs(Functions.Function3<One, Two, FunctionalAgent, OUTPUT> functionalMission, One one, Two two) {
+    public <One,Two, OUTPUT> OUTPUT performs(Functions.Function3<One, Two, FunctionalAgent, OUTPUT> functionalMission, One one, Two two)  throws Exception{
         return functionalMission.apply(one,two, this);
     }
 
-    public <One,Two,Three, OUTPUT> OUTPUT performs(Functions.Function4<One, Two,Three, FunctionalAgent, OUTPUT> functionalMission, One one, Two two, Three three) {
+    public <One,Two,Three, OUTPUT> OUTPUT performs(Functions.Function4<One, Two,Three, FunctionalAgent, OUTPUT> functionalMission, One one, Two two, Three three)  throws Exception{
         return functionalMission.apply(one,two, three, this);
     }
 
-    public <One,Two,Three, Four, OUTPUT> OUTPUT performs(Functions.Function5<One, Two,Three, Four, FunctionalAgent, OUTPUT> functionalMission, One one, Two two, Three three, Four four) {
+    public <One,Two,Three, Four, OUTPUT> OUTPUT performs(Functions.Function5<One, Two,Three, Four, FunctionalAgent, OUTPUT> functionalMission, One one, Two two, Three three, Four four)  throws Exception{
         return functionalMission.apply(one,two, three, four, this);
     }
 
-    public <One,Result> Result performs(Functions.FunctionalMission1<One,Result> mission, One one) {
+    public <One,Result> Result performs(Functions.FunctionalMission1<One,Result> mission, One one) throws Exception {
         return mission.apply(one, this);
     }
 
-    public <One, Two, Result> Result performs(Functions.FunctionalMission2<One, Two, Result> mission, One one, Two two) {
+    public <One, Two, Result> Result performs(Functions.FunctionalMission2<One, Two, Result> mission, One one, Two two) throws Exception {
         return mission.apply(one, two, this);
     }
 
-    public <One, Two, Three, Result> Result performs(Functions.FunctionalMission3<One, Two, Three, Result> mission, One one, Two two, Three three) {
+    public <One, Two, Three, Result> Result performs(Functions.FunctionalMission3<One, Two, Three, Result> mission, One one, Two two, Three three)  throws Exception{
         return mission.apply(one, two, three, this);
     }
 
-    public <One, Two, Three, Four, Result> Result performs(Functions.FunctionalMission4<One, Two, Three, Four, Result> mission, One one, Two two, Three three, Four four) {
+    public <One, Two, Three, Four, Result> Result performs(Functions.FunctionalMission4<One, Two, Three, Four, Result> mission, One one, Two two, Three three, Four four) throws Exception {
         return mission.apply(one, two, three, four, this);
     }
 

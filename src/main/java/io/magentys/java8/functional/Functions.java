@@ -8,55 +8,55 @@ public class Functions {
 
     @FunctionalInterface
     public interface Function2<One,Two, Result> {
-        Result apply(One one, Two two);
+        Result apply(One one, Two two) throws Exception;
     }
 
     @FunctionalInterface
     public interface Function3<One,Two, Three, Result> {
-        Result apply(One one, Two two, Three three);
+        Result apply(One one, Two two, Three three) throws Exception;
     }
 
     @FunctionalInterface
     public interface Function4<One,Two, Three, Four, Result> {
-        Result apply(One one, Two two, Three three, Four four);
+        Result apply(One one, Two two, Three three, Four four) throws Exception;
     }
 
     @FunctionalInterface
     public interface Function5<One,Two, Three, Four, Five, Result> {
-        Result apply(One one, Two two, Three three, Four four, Five five);
+        Result apply(One one, Two two, Three three, Four four, Five five) throws Exception;
     }
 
     @FunctionalInterface
     public interface Function6<One,Two, Three, Four, Five, Six, Result> {
-        Result apply(One one, Two two, Three three, Four four, Five five, Six six);
+        Result apply(One one, Two two, Three three, Four four, Five five, Six six) throws Exception;
     }
 
     @FunctionalInterface
     public interface Function7<One,Two, Three, Four, Five, Six, Seven, Result> {
-        Result apply(One one, Two two, Three three, Four four, Five five, Six six, Seven seven);
+        Result apply(One one, Two two, Three three, Four four, Five five, Six six, Seven seven) throws Exception;
     }
 
 
     @FunctionalInterface
     public interface Function8<One,Two, Three, Four, Five, Six, Seven, Eight, Result> {
-        Result apply(One one, Two two, Three three, Four four, Five five, Six six, Seven seven, Eight eight);
+        Result apply(One one, Two two, Three three, Four four, Five five, Six six, Seven seven, Eight eight) throws Exception;
     }
 
     @FunctionalInterface
     public interface Function9<One,Two, Three, Four, Five, Six, Seven, Eight, Nine, Result> {
-        Result apply(One one, Two two, Three three, Four four, Five five, Six six, Seven seven, Eight eight, Nine nine);
+        Result apply(One one, Two two, Three three, Four four, Five five, Six six, Seven seven, Eight eight, Nine nine) throws Exception;
     }
 
     @FunctionalInterface
     public interface Function10<One,Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Result> {
-        Result apply(One one, Two two, Three three, Four four, Five five, Six six, Seven seven, Eight eight, Nine nine, Ten ten);
+        Result apply(One one, Two two, Three three, Four four, Five five, Six six, Seven seven, Eight eight, Nine nine, Ten ten) throws Exception;
     }
 
 
 
     @FunctionalInterface
     public interface FunctionalMission<RESULT> {
-        RESULT apply(FunctionalAgent functionalAgent);
+        RESULT apply(FunctionalAgent functionalAgent) throws Exception;
     }
 
     @FunctionalInterface
