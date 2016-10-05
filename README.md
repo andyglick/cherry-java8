@@ -16,6 +16,6 @@ Have a look at our full documentation found at:
 [http://cherryframe.work](http://cherryframe.work).
             
             
-* Developers: [Kostas Mamalis](@mamalisk)
+* Developers: [Kostas Mamalis](@mamalisk), [Dave Bassan](@davebassan)
 
 Powered by [Magentys](http://magentys.io)
