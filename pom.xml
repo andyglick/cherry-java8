@@ -9,6 +9,8 @@
   <name>cherry-java8</name>
   <url>http://maven.apache.org</url>
 
+
+
   <licenses>
     <license>
       <name>MIT License</name>
@@ -23,6 +25,11 @@
     <developer>
       <name>Kostas Mamalis</name>
       <id>mamalisk</id>
+      <organizationUrl>http://magentys.io</organizationUrl>
+    </developer>
+    <developer>
+      <name>Dave Bassan</name>
+      <id>dave.bassan</id>
       <organizationUrl>http://magentys.io</organizationUrl>
     </developer>
   </developers>
