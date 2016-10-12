@@ -143,5 +143,10 @@
 	    <artifactId>cherry</artifactId>
 	    <version>${cherry.version}</version>
     </dependency>
+    <dependency>
+      <groupId>com.lambdista</groupId>
+      <artifactId>try</artifactId>
+      <version>0.3.1</version>
+    </dependency>
   </dependencies>
 </project>
