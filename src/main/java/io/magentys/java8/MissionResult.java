@@ -25,13 +25,6 @@ public class MissionResult<T> {
         return this;
     }
 
-    public MissionResult<T> ignoring(final Class<? extends Throwable> clazz) throws Throwable {
-        if (failed() && tryable.failed().get().getClass() != clazz) {
-            throw tryable.failed().get();
-        }
-        return this;
-    }
-
     public boolean failed() {
         return tryable.isFailure();
     }

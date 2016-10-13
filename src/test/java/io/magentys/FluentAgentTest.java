@@ -31,7 +31,7 @@ public class FluentAgentTest {
     @Test
     public void shouldThrowUncheckedExceptionIfNotIgnored() throws Throwable {
         try {
-            agent.performs(missionThrowingUncheckedException).andReturns().getResult();
+            agent.performs(missionThrowingUncheckedException);
             fail("Expected exception to be thrown");
         } catch (IllegalArgumentException e) {
             //pass
@@ -41,7 +41,7 @@ public class FluentAgentTest {
     @Test
     public void shouldSuppressUncheckedExceptionIfIgnored() throws Throwable {
         try {
-            assertThat(agent.performs(missionThrowingUncheckedException).ignoring(IllegalArgumentException.class).failed(), is(true));
+            assertThat(agent.ignoring(IllegalArgumentException.class).performs(missionThrowingUncheckedException).failed(), is(true));
         } catch (IllegalArgumentException e) {
             fail("Expected exception to be suppressed");
         }
@@ -50,7 +50,7 @@ public class FluentAgentTest {
     @Test
     public void shouldThrowCheckedExceptionIfNotIgnored() throws Throwable {
         try {
-            agent.performs(missionThrowingCheckedException).andReturns().getResult();
+            agent.performs(missionThrowingCheckedException);
             fail("Expected exception to be thrown");
         } catch (IOException e) {
             //pass
@@ -60,7 +60,7 @@ public class FluentAgentTest {
     @Test
     public void shouldSuppressCheckedExceptionIfIgnored() throws Throwable {
         try {
-            assertThat(agent.performs(missionThrowingCheckedException).ignoring(IOException.class).failed(), is(true));
+            assertThat(agent.ignoring(IOException.class).performs(missionThrowingCheckedException).failed(), is(true));
         } catch (IOException e) {
             fail("Expected exception to be suppressed");
         }
