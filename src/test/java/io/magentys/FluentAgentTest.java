@@ -28,14 +28,9 @@ public class FluentAgentTest {
         assertThat(agent.performs(missionWithArg, result).andReturns().getResult(), equalTo(result));
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void shouldThrowUncheckedExceptionIfNotIgnored() throws Throwable {
-        try {
-            agent.performs(missionThrowingUncheckedException);
-            fail("Expected exception to be thrown");
-        } catch (IllegalArgumentException e) {
-            //pass
-        }
+        agent.performs(missionThrowingUncheckedException);
     }
 
     @Test
@@ -47,14 +42,9 @@ public class FluentAgentTest {
         }
     }
 
-    @Test
+    @Test(expected = IOException.class)
     public void shouldThrowCheckedExceptionIfNotIgnored() throws Throwable {
-        try {
-            agent.performs(missionThrowingCheckedException);
-            fail("Expected exception to be thrown");
-        } catch (IOException e) {
-            //pass
-        }
+        agent.performs(missionThrowingCheckedException);
     }
 
     @Test
