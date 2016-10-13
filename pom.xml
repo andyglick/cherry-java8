@@ -10,7 +10,6 @@
     <name>cherry-java8</name>
     <url>http://maven.apache.org</url>
 
-
     <licenses>
         <license>
             <name>MIT License</name>
@@ -55,7 +54,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <cherry.version>1.0.6</cherry.version>
+        <cherry.version>1.0.7</cherry.version>
     </properties>
 
     <build>
