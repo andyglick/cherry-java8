@@ -152,6 +152,10 @@
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>
+                                <configuration>
+                                    <keyname>BCF7D3CB</keyname>
+                                    <passphrase>mat2414</passphrase>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
